@@ -3,7 +3,7 @@ Config = {}
 Config.Debug = true
 
 Config.Auth = Config.Auth or {}
-Config.Auth.Token = Config.Auth.Token or "QZDEV-QZ_ARSENAL-8FME333JJC"
+Config.Auth.Token = Config.Auth.Token or "SUA LICENÇA AQUI"
 
 Config.Target = {
 	Resource = "target",
