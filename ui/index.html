@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#e5e2e1",
+              "primary": "#ffc081",
+              "error": "#ffb4ab",
+              "surface-dim": "#131313",
+              "tertiary-fixed": "#ffe087",
+              "primary-fixed-dim": "#ffb870",
+              "tertiary": "#f1c843",
+              "secondary": "#ddc1b7",
+              "surface-tint": "#ffb870",
+              "secondary-fixed-dim": "#ddc1b7",
+              "on-secondary-container": "#cbafa6",
+              "surface-variant": "#353534",
+              "on-tertiary-fixed-variant": "#574500",
+              "outline-variant": "#554434",
+              "outline": "#a38d7a",
+              "on-primary-container": "#653900",
+              "on-secondary": "#3e2c26",
+              "on-tertiary-fixed": "#241a00",
+              "secondary-container": "#56423b",
+              "surface-container-low": "#1c1b1b",
+              "inverse-surface": "#e5e2e1",
+              "on-error-container": "#ffdad6",
+              "secondary-fixed": "#fadcd2",
+              "primary-container": "#ff9800",
+              "on-surface": "#e5e2e1",
+              "on-secondary-fixed-variant": "#56423b",
+              "inverse-primary": "#8b5000",
+              "surface": "#131313",
+              "inverse-on-surface": "#313030",
+              "tertiary-fixed-dim": "#ebc23e",
+              "on-primary": "#4a2800",
+              "surface-container-high": "#2a2a2a",
+              "on-tertiary-container": "#534200",
+              "surface-container-highest": "#353534",
+              "on-surface-variant": "#dbc2ad",
+              "tertiary-container": "#d3ad28",
+              "on-error": "#690005",
+              "surface-container-lowest": "#0e0e0e",
+              "on-primary-fixed-variant": "#693c00",
+              "surface-container": "#201f1f",
+              "error-container": "#93000a",
+              "surface-bright": "#3a3939",
+              "primary-fixed": "#ffdcbe",
+              "on-secondary-fixed": "#271812",
+              "on-tertiary": "#3c2f00",
+              "background": "#131313",
+              "on-primary-fixed": "#2c1600"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Space Grotesk"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body class="bg-transparent text-on-surface h-screen w-screen flex items-center justify-center overflow-hidden p-8">
+<!-- MAIN TABLET FRAME -->
+<main class="w-full max-w-7xl h-full bg-surface-container-lowest rounded-xl border-4 border-surface-container-high tablet-bevel flex flex-col relative overflow-hidden">
+<!-- TOP NAV BAR -->
+<nav class="h-16 px-6 flex items-center justify-between border-b border-outline-variant/20 bg-surface-container-low/50">
+<div class="flex items-center gap-4">
+<span class="text-primary font-bold tracking-widest text-lg" data-arsenal-title>ARSENAL</span>
+</div>
+</nav>
+<div class="flex flex-1 overflow-hidden">
+<!-- SIDE NAV BAR -->
+<aside class="w-64 bg-surface-container-low border-r border-outline-variant/10 flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary/10 flex items-center justify-center rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<h2 class="text-sm font-bold tracking-tighter leading-none">ARMAMENTO</h2>
+<p class="text-[10px] text-on-surface-variant font-medium mt-1">V1.0.4-TACTICAL</p>
+</div>
+</div>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50 group" data-tab="pistolas">
+<span class="material-symbols-outlined text-sm group-hover:text-primary">9mp</span>
+<span class="text-xs font-medium tracking-wider">Pistolas</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-sm transition-all bg-primary/5 text-primary border-r-2 border-primary group" data-tab="fuzis" aria-current="page">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">arrow_range</span>
+<span class="text-xs font-bold tracking-wider">Fuzis</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50 group" data-tab="equipamento">
+<span class="material-symbols-outlined text-sm group-hover:text-primary">shield</span>
+<span class="text-xs font-medium tracking-wider">Equipamento Tático</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50 group" data-tab="acessorios">
+<span class="material-symbols-outlined text-sm group-hover:text-primary">extension</span>
+<span class="text-xs font-medium tracking-wider">Acessórios</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 rounded-sm transition-all text-on-surface-variant hover:bg-surface-container-high/50 group" data-tab="conjuntos">
+<span class="material-symbols-outlined text-sm group-hover:text-primary">inventory</span>
+<span class="text-xs font-medium tracking-wider">Conjuntos</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA (Bento Grid) -->
+<section class="flex-1 bg-surface-container-lowest p-8 overflow-y-auto custom-scrollbar">
+<div class="mb-10">
+<h1 class="text-4xl font-headline font-light tracking-tight text-on-surface"><span data-page-title>Fuzis</span> <span class="text-primary font-bold" data-page-accent>Táticos</span></h1>
+<p class="text-on-surface-variant text-xs mt-2 font-medium tracking-wide" data-page-subtitle>ARMAMENTO AUTORIZADO PARA PATRULHA E UNIDADE DE RESPOSTA ESPECIAL</p>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- MAIN FEATURED WEAPON -->
+<div class="col-span-12 glass-card rounded-lg overflow-hidden group" data-weapon-card data-role="featured" data-weapon-id="m4a1">
+<div class="flex flex-col md:flex-row h-full">
+<div class="flex-1 p-8 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] bg-tertiary/20 text-tertiary px-2 py-0.5 rounded-full font-bold">SRU-SPEC</span>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">NÍVEL 3 AUTORIZADO</span>
+<span class="text-[10px] bg-surface-container-high/50 text-on-surface px-2 py-0.5 rounded-full font-bold" data-weapon-price>R$ 0</span>
+</div>
+<h3 class="text-5xl font-headline font-bold mb-4" data-weapon-name>M4A1</h3>
+<p class="text-on-surface-variant text-sm max-w-md leading-relaxed mb-6" data-weapon-desc>Carabina padrão para unidades especializadas. Versátil, confiável e altamente modular para operações urbanas.</p>
+<div class="grid grid-cols-3 gap-8 mb-8">
+<div>
+<p class="text-[10px] text-on-surface-variant mb-1 font-bold">CADÊNCIA</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]" data-stat-bar="fireRate"></div>
+</div>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant mb-1 font-bold">ESTABILIDADE</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%]" data-stat-bar="stability"></div>
+</div>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant mb-1 font-bold">MOBILIDADE</p>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%]" data-stat-bar="mobility"></div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 bg-primary text-on-primary text-[10px] font-bold tracking-widest rounded-sm" data-action="selecionar-arma">SELECIONAR ARMA</button>
+</div>
+</div>
+<div class="w-full md:w-2/5 relative bg-gradient-to-l from-primary/5 to-transparent flex items-center justify-center p-8">
+<img alt="M4A1" class="w-full object-contain drop-shadow-[0_20px_50px_rgba(255,192,129,0.15)] group-hover:scale-105 transition-transform duration-500" data-alt="Close de alta qualidade de uma carabina tática" data-weapon-img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpCvJreJqzPJX33JtPX1jCyiCdE8Ht83-gTQoFx0Zxo3t_jKzj1Hnf4Z5nH9GvWNtEqLZ1YLI6jZnmoDD6aur34DivSJDKFTV_n_axWlC6gi57DwwXFd5GUFUw3faBTH1XH4nRHwAU2kvk56g7hZJQrKMUEOTxLSb2tB3n8xk6DZbhr0D9qTCeg2LA7KeP6xGZVtlePwbGVMUQcOa25gQw6Zy5POy9Y3uJooIU9xn_abzbikV7Im6QSzSKxfJyFx8JR7Bv8QL-NBo"/>
+<div class="absolute top-4 right-4 text-[10px] font-mono text-outline-variant">SN: 4492-LSPD-X</div>
+</div>
+</div>
+</div>
+<!-- SUB WEAPON 1 -->
+<div class="col-span-12 md:col-span-6 glass-card rounded-lg overflow-hidden flex items-center group relative" data-weapon-card data-role="sub" data-weapon-id="mp5a5">
+<div class="absolute inset-0 bg-center bg-cover opacity-30 pointer-events-none" data-weapon-bg style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUH-Hkxv4sG_qFFywSQwnCSZCfXYt4OFVH1t2r_AX5_pECwVmuFSu8PYT3SlVyTNVyIieVIf3tf5HFBZLHtwH5r9pr8RVaVU_QJJQ0oWL0sCs-4oQnOmJOb1ejK-rZXWkAPF3mZfPjL-I-iH2xBTL_HYSfx0OV8SadwqE9Yhn0XhlOZoxb3_mIsyP9n6HqGPW9ZCS_-zPZjuxpOD8Zymx7TMRZnAmrB0x6dYKk9wzlqSb6hcXxnMoD-L5MFU3Gx8eFnb4nVJE-HWg');"></div>
+<img alt="MP5" class="hidden" data-alt="Submetralhadora tática em um fundo escuro limpo" data-weapon-img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUH-Hkxv4sG_qFFywSQwnCSZCfXYt4OFVH1t2r_AX5_pECwVmuFSu8PYT3SlVyTNVyIieVIf3tf5HFBZLHtwH5r9pr8RVaVU_QJJQ0oWL0sCs-4oQnOmJOb1ejK-rZXWkAPF3mZfPjL-I-iH2xBTL_HYSfx0OV8SadwqE9Yhn0XhlOZoxb3_mIsyP9n6HqGPW9ZCS_-zPZjuxpOD8Zymx7TMRZnAmrB0x6dYKk9wzlqSb6hcXxnMoD-L5MFU3Gx8eFnb4nVJE-HWg"/>
+<div class="flex-1 min-w-0 p-5 flex items-start justify-between gap-3">
+<div class="min-w-0">
+<h4 class="text-lg font-bold font-headline leading-tight truncate" data-weapon-name>MP5 A5</h4>
+<span class="text-[9px] font-bold text-on-surface-variant uppercase tracking-tighter whitespace-nowrap" data-weapon-class>Classe SMG</span>
+<span class="text-[9px] font-bold text-primary whitespace-nowrap" data-weapon-price>R$ 0</span>
+<p class="hidden" data-weapon-desc>Alta cadência, ideal para operações em ambientes fechados.</p>
+</div>
+<button class="w-9 h-9 flex items-center justify-center border border-outline-variant/30 text-on-surface hover:border-primary hover:text-primary transition-all rounded-sm shrink-0" data-action="adicionar-conjunto">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- SUB WEAPON 2 -->
+<div class="col-span-12 md:col-span-6 glass-card rounded-lg overflow-hidden flex items-center group relative" data-weapon-card data-role="sub" data-weapon-id="glock17">
+<div class="absolute inset-0 bg-center bg-cover opacity-30 pointer-events-none" data-weapon-bg style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCpwP6qAYo5syfZYpl7PZWEieYWsQmPRp46WN12WL95wN4La-llCjzYpF2NPKx4HBbm1KQIEpXDds0KSSaq7TM-S9GbYjBQt4VCHiEix3iCIIvWxGHsWjBZnmVuuMRXMXGPlhJiSOLZ0nTZWiVutrGidp_8JWjcNyq9SIsmbPEyAemjeQ-z8CiD1srZ46GU9xoGqWjS0kOo-9X-3Kjojq0_n9GLuHdoOZj_gbwNzGTN5vN5_0QSbwaBxCpXVr8lKSXpoXQilyJxrBk');"></div>
+<img alt="Glock 17" class="hidden" data-alt="Pistola semiautomática moderna" data-weapon-img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpwP6qAYo5syfZYpl7PZWEieYWsQmPRp46WN12WL95wN4La-llCjzYpF2NPKx4HBbm1KQIEpXDds0KSSaq7TM-S9GbYjBQt4VCHiEix3iCIIvWxGHsWjBZnmVuuMRXMXGPlhJiSOLZ0nTZWiVutrGidp_8JWjcNyq9SIsmbPEyAemjeQ-z8CiD1srZ46GU9xoGqWjS0kOo-9X-3Kjojq0_n9GLuHdoOZj_gbwNzGTN5vN5_0QSbwaBxCpXVr8lKSXpoXQilyJxrBk"/>
+<div class="flex-1 min-w-0 p-5 flex items-start justify-between gap-3">
+<div class="min-w-0">
+<h4 class="text-lg font-bold font-headline leading-tight truncate" data-weapon-name>Glock 17</h4>
+<span class="text-[9px] font-bold text-on-surface-variant uppercase tracking-tighter whitespace-nowrap" data-weapon-class>Classe Secundária</span>
+<span class="text-[9px] font-bold text-primary whitespace-nowrap" data-weapon-price>R$ 0</span>
+<p class="hidden" data-weapon-desc>Padrão ouro para armas secundárias policiais. Confiável, durável e leve.</p>
+</div>
+<button class="w-9 h-9 flex items-center justify-center border border-outline-variant/30 text-on-surface hover:border-primary hover:text-primary transition-all rounded-sm shrink-0" data-action="adicionar-conjunto">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT SIDE LOADOUT PANEL -->
+<aside class="w-80 bg-surface-container-low border-l border-outline-variant/10 flex flex-col">
+<div class="p-6 border-b border-outline-variant/10 bg-surface-container-high/20">
+<h3 class="text-xs font-black tracking-[0.2em] mb-4">ARMAS NA MOCHILA</h3>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant mb-2">
+<span>CAPACIDADE DE PESO</span>
+<span class="font-bold text-on-surface" data-weight-text>0.0 / 0.0 KG</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" data-weight-bar style="width: 0%;"></div>
+</div>
+</div>
+<div class="flex-1 p-4 space-y-4 overflow-y-auto custom-scrollbar" data-loadout-list>
+<div class="p-3 border border-dashed border-outline-variant/20 rounded-sm flex items-center justify-center py-6" data-loadout-empty>
+<span class="text-[9px] font-bold text-on-surface-variant tracking-[0.2em]">CARREGANDO...</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high/40 space-y-3">
+<div class="flex justify-between text-xs font-bold border-b border-outline-variant/10 pb-2">
+<span>MUNIÇÃO TOTAL</span>
+<span class="text-primary" data-ammo-text>0 RND</span>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant">
+<span>PISTOLA</span>
+<span class="text-on-surface" data-ammo-pistol>0</span>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant">
+<span>SUB</span>
+<span class="text-on-surface" data-ammo-smg>0</span>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant">
+<span>RIFLE</span>
+<span class="text-on-surface" data-ammo-rifle>0</span>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant">
+<span>ESPINGARDA</span>
+<span class="text-on-surface" data-ammo-shotgun>0</span>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant">
+<span>CONDIÇÃO DO COLETE</span>
+<span class="text-on-surface" data-armor-text>0%</span>
+</div>
+</div>
+<div class="p-6 pt-0 bg-surface-container-high/40">
+<button class="w-full py-4 bg-primary text-on-primary text-[10px] font-black tracking-[0.2em] rounded-sm hover:brightness-110 transition-all flex items-center justify-center gap-2" data-action="refresh">
+ATUALIZAR
+<span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+</aside>
+</div>
+<!-- FOOTER / STAT BAR -->
+<footer class="h-8 bg-surface-container-highest flex items-center justify-between px-6 border-t border-outline-variant/10">
+<div class="text-[8px] font-mono text-on-surface-variant/40">FLOW-TERMINAL-POLICIA</div>
+</footer>
+</main>
+<script>
+  (() => {
+    const targets = ["index.html", "style.css"];
+    const last = new Map();
+    const tick = async () => {
+      try {
+        await Promise.all(
+          targets.map(async (t) => {
+            const r = await fetch(t, { method: "HEAD", cache: "no-store" });
+            const lm = r.headers.get("last-modified") ?? "";
+            const prev = last.get(t);
+            if (prev && prev !== lm) location.reload();
+            if (!prev) last.set(t, lm);
+          })
+        );
+      } catch {}
+    };
+    tick();
+    setInterval(tick, 750);
+  })();
+
+  (() => {
+    const resourceName =
+      typeof GetParentResourceName === "function" ? GetParentResourceName() : "qz_arsenal";
+    const post = (name, data) =>
+      fetch(`https://${resourceName}/${name}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify(data || {})
+      }).catch(() => {});
+
+    const featuredTemplate = document.querySelector('[data-weapon-card][data-role="featured"]');
+    const subTemplate = document.querySelector('[data-weapon-card][data-role="sub"]');
+    const grid = document.querySelector("section .grid.grid-cols-12");
+    const tabButtons = Array.from(document.querySelectorAll("button[data-tab]"));
+    const arsenalTitleEl = document.querySelector("[data-arsenal-title]");
+    const weightTextEl = document.querySelector("[data-weight-text]");
+    const weightBarEl = document.querySelector("[data-weight-bar]");
+    const loadoutListEl = document.querySelector("[data-loadout-list]");
+    const ammoTextEl = document.querySelector("[data-ammo-text]");
+    const ammoPistolEl = document.querySelector("[data-ammo-pistol]");
+    const ammoSmgEl = document.querySelector("[data-ammo-smg]");
+    const ammoRifleEl = document.querySelector("[data-ammo-rifle]");
+    const ammoShotgunEl = document.querySelector("[data-ammo-shotgun]");
+    const armorTextEl = document.querySelector("[data-armor-text]");
+    const pageTitleEl = document.querySelector("[data-page-title]");
+    const pageAccentEl = document.querySelector("[data-page-accent]");
+    const pageSubtitleEl = document.querySelector("[data-page-subtitle]");
+
+    if (!featuredTemplate || !subTemplate || !grid) return;
+
+    const initialBodyDisplay = getComputedStyle(document.body).display;
+    const setVisible = (visible) => {
+      document.body.style.display = visible ? initialBodyDisplay : "none";
+    };
+    setVisible(false);
+
+    let categoriesByKey = {};
+    let activeKey = "";
+    let playerState = {
+      weapons: new Set(),
+      ammo: { pistol: 0, smg: 0, rifle: 0, shotgun: 0 }
+    };
+
+    const normalize = (s) => (s || "").trim();
+    const fmtMoney = (value) => {
+      const n = Number(value) || 0;
+      return new Intl.NumberFormat("pt-BR").format(n);
+    };
+    const ammoKeyFromItem = (item) => {
+      if (item === "WEAPON_PISTOL_AMMO") return "pistol";
+      if (item === "WEAPON_SMG_AMMO") return "smg";
+      if (item === "WEAPON_RIFLE_AMMO") return "rifle";
+      if (item === "WEAPON_SHOTGUN_AMMO") return "shotgun";
+      return "";
+    };
+    const setBtnDisabled = (btn, disabled) => {
+      if (!btn) return;
+      btn.disabled = !!disabled;
+      btn.classList.toggle("opacity-60", !!disabled);
+      btn.classList.toggle("cursor-not-allowed", !!disabled);
+      btn.classList.toggle("pointer-events-none", !!disabled);
+    };
+    const applyAvailability = (card) => {
+      if (!card) return;
+      const item = String(card.dataset.weaponItem || "");
+      if (!item) return;
+
+      const ammoKey = ammoKeyFromItem(item);
+      const selectBtn = card.querySelector('[data-action="selecionar-arma"]');
+      const addBtn = card.querySelector('[data-action="adicionar-conjunto"]');
+
+      if (ammoKey) {
+        const limit = Number(card.dataset.weaponAmount || 250) || 250;
+        const current = Number(playerState?.ammo?.[ammoKey] ?? 0) || 0;
+        const disabled = current >= limit;
+        if (selectBtn) {
+          if (disabled) selectBtn.textContent = "LIMITE ATINGIDO";
+          else {
+            const price = Number(card.dataset.weaponPrice || 0) || 0;
+            selectBtn.textContent = price > 0 ? `COMPRAR R$ ${fmtMoney(price)}` : "PEGAR";
+          }
+          setBtnDisabled(selectBtn, disabled);
+        }
+        if (addBtn) setBtnDisabled(addBtn, disabled);
+        return;
+      }
+
+      const hasWeapon = playerState.weapons && playerState.weapons.has(item);
+      if (selectBtn) {
+        if (hasWeapon) selectBtn.textContent = "JÁ POSSUI";
+        else {
+          const price = Number(card.dataset.weaponPrice || 0) || 0;
+          selectBtn.textContent = price > 0 ? `COMPRAR R$ ${fmtMoney(price)}` : "PEGAR";
+        }
+        setBtnDisabled(selectBtn, hasWeapon);
+      }
+      if (addBtn) setBtnDisabled(addBtn, hasWeapon);
+    };
+    const setWeight = (payload) => {
+      if (!payload) return;
+      const has =
+        payload.current != null ||
+        payload.weight != null ||
+        payload.max != null ||
+        payload.maxWeight != null ||
+        payload.capacity != null;
+      if (!has) return;
+      const current = Number(payload.current ?? payload.weight ?? 0) || 0;
+      const max = Number(payload.max ?? payload.maxWeight ?? payload.capacity ?? 0) || 0;
+      const ratio = max > 0 ? Math.max(0, Math.min(1, current / max)) : 0;
+      if (weightTextEl) weightTextEl.textContent = `${current.toFixed(1)} / ${max.toFixed(1)} KG`;
+      if (weightBarEl) weightBarEl.style.width = `${(ratio * 100).toFixed(0)}%`;
+    };
+    const setAmmo = (payload) => {
+      if (!payload) return;
+      const has = payload.ammoTotal != null || payload.ammo != null;
+      if (!has) return;
+
+      const ammoTotal = Number(payload.ammoTotal ?? 0) || 0;
+      if (ammoTextEl) ammoTextEl.textContent = `${ammoTotal} RND`;
+
+      const a = payload.ammo || {};
+      const pistol = Number(a.pistol ?? 0) || 0;
+      const smg = Number(a.smg ?? 0) || 0;
+      const rifle = Number(a.rifle ?? 0) || 0;
+      const shotgun = Number(a.shotgun ?? 0) || 0;
+
+      if (ammoPistolEl) ammoPistolEl.textContent = String(pistol);
+      if (ammoSmgEl) ammoSmgEl.textContent = String(smg);
+      if (ammoRifleEl) ammoRifleEl.textContent = String(rifle);
+      if (ammoShotgunEl) ammoShotgunEl.textContent = String(shotgun);
+    };
+    const setArmor = (payload) => {
+      if (!payload || payload.armor == null) return;
+      const armor = Math.max(0, Math.min(100, Number(payload.armor) || 0));
+      if (armorTextEl) armorTextEl.textContent = `${armor.toFixed(0)}%`;
+    };
+    const renderWeapons = (payload) => {
+      if (!loadoutListEl) return;
+      if (!payload || !Array.isArray(payload.weapons)) return;
+      loadoutListEl.innerHTML = "";
+      if (payload.weapons.length === 0) {
+        const empty = document.createElement("div");
+        empty.className =
+          "p-3 border border-dashed border-outline-variant/20 rounded-sm flex items-center justify-center py-6";
+        empty.setAttribute("data-loadout-empty", "");
+        const label = document.createElement("span");
+        label.className = "text-[9px] font-bold text-on-surface-variant tracking-[0.2em]";
+        label.textContent = "SEM ARMAS";
+        empty.appendChild(label);
+        loadoutListEl.appendChild(empty);
+        return;
+      }
+
+      payload.weapons.forEach((w) => {
+        const item = document.createElement("div");
+        item.className =
+          "p-3 bg-surface-container-highest/30 border border-outline-variant/10 rounded-sm flex items-center gap-3";
+
+        const iconWrap = document.createElement("div");
+        iconWrap.className =
+          "w-12 h-12 bg-surface-container-high/60 flex items-center justify-center p-1";
+
+        if (w?.img) {
+          const img = document.createElement("img");
+          img.className = "w-full h-full object-contain";
+          img.src = w.img;
+          img.alt = w.label || w.item || "ARMA";
+          iconWrap.appendChild(img);
+        } else {
+          const icon = document.createElement("span");
+          icon.className = "material-symbols-outlined text-primary";
+          icon.textContent = "inventory_2";
+          iconWrap.appendChild(icon);
+        }
+
+        const textWrap = document.createElement("div");
+        textWrap.className = "flex-1 min-w-0";
+
+        const title = document.createElement("p");
+        title.className = "text-[10px] font-bold truncate";
+        title.textContent = w.label || w.item || "ARMA";
+
+        const sub = document.createElement("p");
+        sub.className = "text-[8px] text-on-surface-variant uppercase tracking-tighter";
+        const amt = Number(w.amount) || 1;
+        sub.textContent = `x${amt}`;
+
+        textWrap.appendChild(title);
+        textWrap.appendChild(sub);
+
+        item.appendChild(iconWrap);
+        item.appendChild(textWrap);
+
+        loadoutListEl.appendChild(item);
+      });
+    };
+    const setPlayerInfo = (payload) => {
+      setWeight(payload);
+      setAmmo(payload);
+      setArmor(payload);
+      renderWeapons(payload);
+
+      if (payload && Array.isArray(payload.weapons)) {
+        const s = new Set();
+        payload.weapons.forEach((w) => {
+          if (w && w.item) s.add(String(w.item));
+        });
+        playerState.weapons = s;
+      }
+
+      if (payload && payload.ammo) {
+        const a = payload.ammo || {};
+        playerState.ammo = {
+          pistol: Number(a.pistol ?? playerState.ammo.pistol ?? 0) || 0,
+          smg: Number(a.smg ?? playerState.ammo.smg ?? 0) || 0,
+          rifle: Number(a.rifle ?? playerState.ammo.rifle ?? 0) || 0,
+          shotgun: Number(a.shotgun ?? playerState.ammo.shotgun ?? 0) || 0
+        };
+      }
+
+      applyAvailability(grid.querySelector('[data-weapon-card][data-role="featured"]'));
+      Array.from(grid.querySelectorAll('[data-weapon-card][data-role="sub"]')).forEach(applyAvailability);
+    };
+    const setTabActiveStyles = (tabKey) => {
+      tabButtons.forEach((btn) => {
+        const active = btn.getAttribute("data-tab") === tabKey;
+        btn.classList.toggle("bg-primary/5", active);
+        btn.classList.toggle("text-primary", active);
+        btn.classList.toggle("border-r-2", active);
+        btn.classList.toggle("border-primary", active);
+        btn.classList.toggle("text-on-surface-variant", !active);
+        if (active) btn.setAttribute("aria-current", "page");
+        else btn.removeAttribute("aria-current");
+
+        const label = btn.querySelector("span:not(.material-symbols-outlined)");
+        if (label) {
+          label.classList.toggle("font-bold", active);
+          label.classList.toggle("font-medium", !active);
+        }
+      });
+    };
+
+    const writeFeatured = (card, weapon) => {
+      const id = weapon?.id || "";
+      const item = weapon?.item || "";
+      card.setAttribute("data-weapon-id", id);
+      card.dataset.weaponItem = item;
+
+      const price = Number(weapon?.price ?? 0) || 0;
+      card.dataset.weaponPrice = String(price);
+      card.dataset.weaponAmount = weapon?.amount != null ? String(weapon.amount) : "";
+      card.dataset.weaponIsKit = weapon?.isKit ? "1" : "0";
+
+      const nameEl = card.querySelector("[data-weapon-name]");
+      if (nameEl) nameEl.textContent = weapon?.label || "ARMA";
+
+      const descEl = card.querySelector("[data-weapon-desc]");
+      if (descEl) descEl.textContent = weapon?.desc || "";
+
+      const imgEl = card.querySelector("[data-weapon-img]");
+      if (imgEl) {
+        if (weapon?.img) imgEl.setAttribute("src", weapon.img);
+        imgEl.setAttribute("alt", weapon?.label || "ARMA");
+      }
+
+      const priceEl = card.querySelector("[data-weapon-price]");
+      if (priceEl) priceEl.textContent = price > 0 ? `R$ ${fmtMoney(price)}` : "GRÁTIS";
+      const selectBtn = card.querySelector('[data-action="selecionar-arma"]');
+      if (selectBtn) selectBtn.textContent = price > 0 ? `COMPRAR R$ ${fmtMoney(price)}` : "PEGAR";
+
+      const stats = weapon?.stats || {};
+      card.dataset.weaponFireRate =
+        typeof stats.fireRate === "number" ? String(stats.fireRate) : "";
+      card.dataset.weaponStability =
+        typeof stats.stability === "number" ? String(stats.stability) : "";
+      card.dataset.weaponMobility =
+        typeof stats.mobility === "number" ? String(stats.mobility) : "";
+
+      const fire = card.querySelector('[data-stat-bar="fireRate"]');
+      if (fire) fire.style.width = typeof stats.fireRate === "number" ? `${stats.fireRate}%` : "0%";
+      const stab = card.querySelector('[data-stat-bar="stability"]');
+      if (stab) stab.style.width = typeof stats.stability === "number" ? `${stats.stability}%` : "0%";
+      const mob = card.querySelector('[data-stat-bar="mobility"]');
+      if (mob) mob.style.width = typeof stats.mobility === "number" ? `${stats.mobility}%` : "0%";
+
+      applyAvailability(card);
+    };
+
+    const writeSub = (card, weapon) => {
+      const id = weapon?.id || "";
+      const item = weapon?.item || "";
+      card.setAttribute("data-weapon-id", id);
+      card.dataset.weaponItem = item;
+
+      const price = Number(weapon?.price ?? 0) || 0;
+      card.dataset.weaponPrice = String(price);
+      card.dataset.weaponAmount = weapon?.amount != null ? String(weapon.amount) : "";
+      card.dataset.weaponIsKit = weapon?.isKit ? "1" : "0";
+
+      const nameEl = card.querySelector("[data-weapon-name]");
+      if (nameEl) nameEl.textContent = weapon?.label || "ARMA";
+
+      const classEl = card.querySelector("[data-weapon-class]");
+      if (classEl) classEl.textContent = weapon?.classLabel || "";
+
+      const priceEl = card.querySelector("[data-weapon-price]");
+      if (priceEl) priceEl.textContent = price > 0 ? `R$ ${fmtMoney(price)}` : "GRÁTIS";
+
+      const descEl = card.querySelector("[data-weapon-desc]");
+      if (descEl) descEl.textContent = weapon?.desc || "";
+
+      const imgEl = card.querySelector("img[data-weapon-img]");
+      if (imgEl) {
+        if (weapon?.img) imgEl.setAttribute("src", weapon.img);
+        imgEl.setAttribute("alt", weapon?.label || "ARMA");
+      }
+
+      const bgEl = card.querySelector("[data-weapon-bg]");
+      if (bgEl) {
+        const src = weapon?.img || "";
+        bgEl.style.backgroundImage = src ? `url('${src}')` : "";
+      }
+
+      const stats = weapon?.stats || {};
+      card.dataset.weaponFireRate =
+        typeof stats.fireRate === "number" ? String(stats.fireRate) : "";
+      card.dataset.weaponStability =
+        typeof stats.stability === "number" ? String(stats.stability) : "";
+      card.dataset.weaponMobility =
+        typeof stats.mobility === "number" ? String(stats.mobility) : "";
+
+      applyAvailability(card);
+    };
+
+    const readWeaponFromFeatured = (card) => {
+      const imgEl = card.querySelector("[data-weapon-img]");
+      const fireRate = Number(card.dataset.weaponFireRate);
+      const stability = Number(card.dataset.weaponStability);
+      const mobility = Number(card.dataset.weaponMobility);
+      const stats = {
+        fireRate: Number.isFinite(fireRate) ? fireRate : undefined,
+        stability: Number.isFinite(stability) ? stability : undefined,
+        mobility: Number.isFinite(mobility) ? mobility : undefined
+      };
+      return {
+        id: normalize(card.getAttribute("data-weapon-id")),
+        item: normalize(card.dataset.weaponItem),
+        label: normalize(card.querySelector("[data-weapon-name]")?.textContent),
+        classLabel: "",
+        desc: normalize(card.querySelector("[data-weapon-desc]")?.textContent),
+        img: imgEl?.getAttribute("src") || "",
+        stats,
+        price: Number(card.dataset.weaponPrice) || 0,
+        amount: card.dataset.weaponAmount ? Number(card.dataset.weaponAmount) : undefined,
+        isKit: card.dataset.weaponIsKit === "1"
+      };
+    };
+
+    const readWeaponFromSub = (card) => {
+      const imgEl = card.querySelector("img[data-weapon-img]");
+      const fireRate = Number(card.dataset.weaponFireRate);
+      const stability = Number(card.dataset.weaponStability);
+      const mobility = Number(card.dataset.weaponMobility);
+      return {
+        id: normalize(card.getAttribute("data-weapon-id")),
+        item: normalize(card.dataset.weaponItem),
+        label: normalize(card.querySelector("[data-weapon-name]")?.textContent),
+        classLabel: normalize(card.querySelector("[data-weapon-class]")?.textContent),
+        desc: normalize(card.querySelector("[data-weapon-desc]")?.textContent),
+        img: imgEl?.getAttribute("src") || "",
+        stats: {
+          fireRate: Number.isFinite(fireRate) ? fireRate : undefined,
+          stability: Number.isFinite(stability) ? stability : undefined,
+          mobility: Number.isFinite(mobility) ? mobility : undefined
+        },
+        price: Number(card.dataset.weaponPrice) || 0,
+        amount: card.dataset.weaponAmount ? Number(card.dataset.weaponAmount) : undefined,
+        isKit: card.dataset.weaponIsKit === "1"
+      };
+    };
+
+    const renderCategory = (catKey) => {
+      const cat = categoriesByKey[catKey];
+      if (!cat) return;
+
+      activeKey = catKey;
+      if (pageTitleEl) pageTitleEl.textContent = cat.title || "";
+      if (pageAccentEl) {
+        pageAccentEl.textContent = cat.accent || "";
+        pageAccentEl.classList.toggle("hidden", !(cat.accent || ""));
+      }
+      if (pageSubtitleEl) pageSubtitleEl.textContent = cat.subtitle || "";
+
+      const weapons = Array.isArray(cat.weapons) ? cat.weapons : [];
+      grid.innerHTML = "";
+
+      if (weapons.length >= 1) {
+        const featured = featuredTemplate.cloneNode(true);
+        writeFeatured(featured, weapons[0]);
+        grid.appendChild(featured);
+      }
+
+      for (let i = 1; i < weapons.length; i++) {
+        const card = subTemplate.cloneNode(true);
+        writeSub(card, weapons[i]);
+        grid.appendChild(card);
+      }
+
+      setTabActiveStyles(catKey);
+    };
+
+    const hydrateTabs = () => {
+      tabButtons.forEach((btn) => {
+        const key = btn.getAttribute("data-tab") || "";
+        const cat = categoriesByKey[key];
+        btn.style.display = cat ? "" : "none";
+        const label = btn.querySelector("span:not(.material-symbols-outlined)");
+        if (label && cat?.title) label.textContent = cat.title;
+      });
+    };
+
+    document.addEventListener("click", (e) => {
+      const tabBtn = e.target.closest("button[data-tab]");
+      if (tabBtn) {
+        const key = tabBtn.getAttribute("data-tab") || "";
+        if (categoriesByKey[key]) renderCategory(key);
+        return;
+      }
+
+      const refreshBtn = e.target.closest('[data-action="refresh"]');
+      if (refreshBtn) {
+        post("Refresh");
+        return;
+      }
+
+      const selectBtn = e.target.closest('[data-action="selecionar-arma"]');
+      if (selectBtn) {
+        if (selectBtn.disabled) return;
+        const card = selectBtn.closest("[data-weapon-card]");
+        const item = card?.dataset?.weaponItem || "";
+        if (item) post("SelectWeapon", { item });
+        return;
+      }
+
+      const addBtn = e.target.closest('[data-action="adicionar-conjunto"]');
+      if (addBtn) {
+        if (addBtn.disabled) return;
+        const card = addBtn.closest("[data-weapon-card]");
+        const item = card?.dataset?.weaponItem || "";
+        if (item) post("SelectWeapon", { item });
+        return;
+      }
+
+      const subCard = e.target.closest('[data-weapon-card][data-role="sub"]');
+      const featuredCard = grid.querySelector('[data-weapon-card][data-role="featured"]');
+      if (!subCard || !featuredCard) return;
+
+      const featuredData = readWeaponFromFeatured(featuredCard);
+      const subData = readWeaponFromSub(subCard);
+      writeFeatured(featuredCard, subData);
+      writeSub(subCard, featuredData);
+      applyAvailability(featuredCard);
+      applyAvailability(subCard);
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        post("Close");
+        setVisible(false);
+      }
+    });
+
+    window.addEventListener("message", (event) => {
+      const data = event.data || {};
+      const action = data.Action || data.action;
+
+      if (action === "Open") {
+        const payload = data.Payload || data.payload || {};
+        if (arsenalTitleEl) {
+          const t = String(payload.arsenalTitle || "ARSENAL");
+          arsenalTitleEl.textContent = t;
+        }
+        setPlayerInfo(payload.playerInfo || payload.player || payload);
+        const categories = Array.isArray(payload.categories) ? payload.categories : [];
+        categoriesByKey = Object.fromEntries(
+          categories
+            .filter((c) => c && c.key)
+            .map((c) => [String(c.key), c])
+        );
+        hydrateTabs();
+
+        const firstKey =
+          (payload.defaultTab && categoriesByKey[payload.defaultTab] && payload.defaultTab) ||
+          Object.keys(categoriesByKey)[0] ||
+          "";
+        if (firstKey) renderCategory(firstKey);
+        setVisible(true);
+        return;
+      }
+
+      if (action === "PlayerInfo") {
+        const payload = data.Payload || data.payload || {};
+        setPlayerInfo(payload);
+        return;
+      }
+
+      if (action === "Close") {
+        setVisible(false);
+      }
+    });
+  })();
+</script>
+</body></html>
