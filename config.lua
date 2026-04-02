@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Debug = true
+Config.Debug = false
 
 Config.Auth = Config.Auth or {}
 Config.Auth.Token = Config.Auth.Token or "SUA LICENÇA AQUI"
